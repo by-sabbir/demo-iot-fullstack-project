@@ -1,0 +1,10 @@
+SECRET_KEY="lkdf@###lf583^2#KE-ri1$HkX@90i10"
+DEBUG=True
+DBNAME="postgres"
+DBUSER="postgres"
+DBPASS="hello"
+DBHOST="db"
+DBPORT="5432"
+STATICFILES="/static/"
+MEDIAFILES="/media/"
+DJANGO_SETTINGS_MODULE=app.settings
