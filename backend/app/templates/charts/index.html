@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% include 'partials/_navbar.html' %}
+    <h1 class="text text-center">Distance</h1>
+    <div class="container">
+      <canvas class="img img-fluid" id="myChart" width="500" height="400"></canvas>
+    </div>
+    <script src="{% static '/vendor/js/jquery-1.10.0.min.js' %}"></script>
+    <script
+      type="text/javascript"
+      src="{% static '/vendor/js/Chart.min.js' %}"
+    ></script>
+    <script type="text/javascript">
+      $.get('{% url "line_chart_json" %}', function (data) {
+        console.log(data)
+        var ctx = $("#myChart").get(0).getContext("2d");
+        new Chart(ctx, {
+          type: "line",
+          data: data,
+          options: {
+            title: {
+              display: true,
+              text: "Bin Clearance (Distance in CM)",
+            },
+          },
+        });
+      });
+    </script>
+{% endblock content %}
