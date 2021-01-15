@@ -11,7 +11,8 @@
   - NodeMCU V3 ESP-12E
   - POST Operation using ESP
 
-### Installation
+## Installation
+### Django Backend
 
 This project requires [Docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/) to run.
 
@@ -26,6 +27,6 @@ $ docker-compose up -d
 Now, you can visit ```http://localhost:8000```. This should open our project's homepage.
 
 ### ToDo
-> Readme for IoT Firmware build
-> Firmwire build Automation
-> MQTT
+> - Readme for IoT Firmware build
+> - Firmwire build Automation
+> - MQTT
