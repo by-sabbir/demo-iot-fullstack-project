@@ -3,19 +3,37 @@
 {% block content %}
 
     {% include 'partials/_navbar.html' %}
-    <h1 class="text text-center">Distance</h1>
+    <h1 class="text text-center">Bin Stats</h1>
+    <!-- pie chart -->
     <div class="container">
-      <canvas class="img img-fluid" id="myChart" width="500" height="400"></canvas>
+      <div class="row" style="width: 100%;">
+        <div class="col">
+          <canvas class="img img-fluid" id="pieChart"></canvas>
+          <br><br>
+        </div>
+        <div class="col">
+          <br><br>
+          <h5 class="text text-center" style="vertical-align: middle;"> Lorem Ipsum</h5>
+          <p style="vertical-align: middle;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat deserunt repellat id dignissimos maxime rem obcaecati deleniti nam asperiores, quod sunt atque veniam ullam neque sint magni sed laudantium dolore?</p>
+        </div>
+      </div>
     </div>
+    <!-- line chart -->
+    <div class="container" style="width: 80%;">
+      <canvas class="img img-fluid" id="lineChart"></canvas>
+    </div>
+
+    <!-- script part -->
     <script src="{% static '/vendor/js/jquery-1.10.0.min.js' %}"></script>
     <script
       type="text/javascript"
       src="{% static '/vendor/js/Chart.min.js' %}"
     ></script>
+
     <script type="text/javascript">
       $.get('{% url "line_chart_json" %}', function (data) {
         console.log(data)
-        var ctx = $("#myChart").get(0).getContext("2d");
+        var ctx = $("#lineChart").get(0).getContext("2d");
         new Chart(ctx, {
           type: "line",
           data: data,
@@ -28,4 +46,39 @@
         });
       });
     </script>
+
+  <script type="text/javascript">
+    $.get('{% url "pie_chart_json" %}', function (data) {
+      console.log(data)
+      var ctx = $("#pieChart").get(0).getContext("2d");
+      new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Fill", "Clearance"],
+            datasets: [
+              {
+                  fill: true,
+                  backgroundColor: [
+                  'rgba(201, 65, 38, 0.7)',
+                  'rgba(69, 155, 29, 0.75)'],
+                  data: data.data,
+      // Notice the borderColor 
+                  borderColor:	[
+                  'rgba(201, 38, 38, .95)',
+                  'rgba(69, 180, 29, 0.95)'],
+                  borderWidth: [2,2]
+        }
+    ]
+},
+        options: {
+          title: {
+            display: true,
+            text: "Bin State",
+            position: 'top'
+          },
+          rotation: -0.7 * Math.PI,
+        },
+      });
+    });
+  </script>
 {% endblock content %}

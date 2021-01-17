@@ -46,11 +46,11 @@ void loop() {
   delay(50);
   String content = "distance=" + String(dist_cm);
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-  delay(1000);
   int httpResponse = http.POST(content);
   Serial.print("HTTP Response code: ");
   Serial.println(httpResponse);
   Serial.println(content);
   http.end();
+  delay(3 * 1000);
 
 }
