@@ -14,7 +14,7 @@ class ApiListAndCreationView(APIView):
             query = None
         serializer = MeasurementModelSerializer(query, many=True)
         return Response(serializer.data, status.HTTP_200_OK)
-    
+
     def post(self, request):
         serializer = MeasurementModelSerializer(data=request.data)
         if serializer.is_valid():
