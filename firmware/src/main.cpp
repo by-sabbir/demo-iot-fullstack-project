@@ -11,7 +11,7 @@ const char* ssid = "EASIN__BASNETWORK"; //Enter SSID
 const char* password = "easin@1122"; //Enter Password
 
 String msg;
-String endpoint = "http://13.251.211.39:8888/api/v1/sensor-data/";
+String endpoint = "http://65.1.35.85/api/v1/sensor-data/";
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
 float dist_cm;
  
@@ -51,6 +51,6 @@ void loop() {
   Serial.println(httpResponse);
   Serial.println(content);
   http.end();
-  delay(3 * 1000);
+  delay(5 * 1000);
 
 }
