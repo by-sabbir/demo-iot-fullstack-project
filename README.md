@@ -1,4 +1,4 @@
-# Django Backed IoT Solution
+# Amet Solutions
 
 [![N|Solid](https://sabbir.dev/static/site/logo.png)](https://sabbir.dev/static/site/logo.png)
 
