@@ -53,4 +53,8 @@ void loop() {
   Serial.println(content);
   http.end();
   delay(5 * 1000);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4122df909b89723f54e4df3c2271e7278db435cd
 }
